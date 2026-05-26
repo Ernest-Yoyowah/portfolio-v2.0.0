@@ -1,0 +1,165 @@
+ERNEST YOYOWAH
+Software Engineer · Lead Frontend Engineer
+Accra, Ghana
+ernestniiyoyowah@gmail.com | +233 50 692 3484
+github.com/ernestyoyowah | linkedin.com/in/ernestyoyowah
+
+───────────────────────────────────────────────────────────────
+
+ABOUT ME
+
+I am a Software Engineer based in Accra, Ghana, with a focus on building
+frontend systems for payment products and digital platforms. Over the past
+several years I have grown from writing my first production website to leading
+frontend engineering on products used by hundreds of thousands of people across
+Ghana. My work sits at the intersection of user-facing interfaces and critical
+financial infrastructure — a space that demands precision, security consciousness,
+and a deep respect for the people on the other side of every transaction.
+
+───────────────────────────────────────────────────────────────
+
+MY JOURNEY
+
+I started my career in 2020 at DMI (Dkeys Music Institute), where I led the
+development of their official website. It was my first real taste of building
+something for a real audience — applying modern UI/UX principles, implementing
+responsive design, and thinking about SEO and brand presence from the ground up.
+The stack was straightforward (ReactJS, HTML5, CSS3), but the experience taught
+me how to align technical work with business and communication goals, and how
+to collaborate with stakeholders who do not speak in code.
+
+In mid-2023 I joined Xcelsz as an Agile Developer for a short but formative
+engagement. I worked within a cross-functional team on improving mobile
+responsiveness across their web products — analysing the existing interface,
+identifying responsiveness gaps, and implementing solutions using CSS media
+queries and responsive design patterns. The Agile environment sharpened my
+ability to work iteratively, communicate progress, and ship incrementally.
+
+That same year — July 2023 — I joined the MTN PULSE Development Team, working
+through Dexwin Tech. This is where my career shifted significantly. I was placed
+on the MTN Pulse app, MTN's youth-focused platform serving over 100,000 active
+users. When I arrived, the codebase had accumulated serious architectural debt.
+I conducted a thorough analysis of the existing system, identified over 15
+critical inefficiencies, and developed a migration plan that reduced technical
+debt by 40%. The result was a more scalable, maintainable, and performant
+application that gave the team the headroom to move faster and build with more
+confidence.
+
+In parallel with that work I was also involved in frontend integration for
+MTN's payment products — building user-facing flows for Mobile Money
+transactions, PCI DSS-compliant Mastercard hosted checkout, and airtime top-up.
+I implemented OTP verification flows, SIM swap validation, and Ghana Card (NIA)
+integration for high-risk operations. I take security on the frontend seriously:
+OWASP-aligned input sanitisation, secure token handling, safe redirects, and
+no sensitive card data ever touching our frontend — those are not optional
+considerations, they are the baseline.
+
+In March 2025 I was promoted to Lead Frontend Engineer, a recognition of the
+work I had put in and the trust the team placed in me.
+
+Between June and November 2024 I also worked at Jadaad Technologies as a
+Software Engineer, contributing to Hygeieiora and Jadaad web applications.
+I built and maintained reusable component libraries using React, TypeScript,
+Material-UI, and Tailwind CSS, integrated backend APIs, and collaborated closely
+with designers to ship user-centric interfaces on time.
+
+───────────────────────────────────────────────────────────────
+
+WHAT I BUILD
+
+My work spans several interconnected areas:
+
+Payment & Fintech Systems
+I build the frontend layer for payment products — the screens, flows, and
+interactions that users rely on when moving money. That includes transaction
+flows (MSISDN input, payment method selection, OTP verification, status polling),
+resilient error handling for duplicate submissions and asynchronous payment
+states, and compliance-aligned implementations for PCI DSS and OWASP. I am
+careful and methodical in this space because mistakes cost people money and
+erode trust.
+
+Products I have contributed to include:
+- MTN Pay — MTN's central payment gateway handling Mobile Money, Mastercard
+  hosted checkout, and airtime across multiple MTN services
+- MTN Self Service Portal (SSP) — customer-facing platform for account
+  management, broadband, SIM/eSIM provisioning, and in-portal payments
+- MTN Pulse — youth platform within the MyMTN app
+- MTN Auth Services — Auth0-based centralised authentication consumed by
+  multiple MTN applications in Ghana and South Africa
+
+GPS & Fleet Tracking
+I led the full-stack redevelopment of the Autosurveil GPS platform — a fleet
+intelligence system with real-time vehicle monitoring, route analytics, and
+OTP-based authentication flows. I owned both the frontend (Next.js, TypeScript)
+and backend (Node.js, MongoDB) for that project.
+
+Music Technology
+Outside of my primary engineering work I build tools for musicians. PulseMIDI
+is a native macOS MIDI diagnostic and routing tool I am building with Rust,
+Tauri, and React — it talks directly to CoreMIDI and provides real-time signal
+visualisation and device management. PulsePad is a performance pad controller
+system for live musicians, currently in active development. These projects exist
+because I am a musician as well as an engineer, and I want to solve problems I
+actually experience.
+
+───────────────────────────────────────────────────────────────
+
+TECHNICAL SKILLS
+
+Languages:    TypeScript, JavaScript, Golang, Rust
+Frontend:     React, React Native, Next.js, Tailwind CSS
+Backend:      Node.js, Express, MongoDB, MySQL
+State:        Redux, Zustand
+Security:     Auth0, PCI DSS, OWASP
+Tooling:      Git, Agile/Scrum, ClickUp
+
+───────────────────────────────────────────────────────────────
+
+CERTIFICATIONS
+
+I have invested consistently in structured learning alongside my work:
+
+- Meta Front-End Developer Specialization (Meta, Sep 2023)
+- Front-End Developer Capstone (Meta, Aug 2023)
+- Principles of UX/UI Design (Meta, Aug 2023)
+- Advanced React (Coursera, Apr 2023)
+- React Basics (Meta, Mar 2023)
+- Mobile Development and JavaScript (Meta, Nov 2023)
+- Introduction to Mobile Development (Meta, Dec 2023)
+- Back-End Web Development (Microsoft Imagine Cup, Jun 2023)
+- Coding Interview Preparation (Meta, Sep 2022)
+- Programming with JavaScript (Meta, Nov 2022)
+- Version Control (Coursera, Nov 2022)
+- Problem Solving Using Computational Thinking (University of Michigan, Nov 2022)
+- Cloud Computing Basics / Cloud 101 (Coursera, Oct 2022)
+
+───────────────────────────────────────────────────────────────
+
+MUSIC
+
+I am a keyboardist and producer. Music is not separate from my engineering
+identity — it shapes how I think about experience design, timing, and the
+emotional weight of interactions. My setup includes Ableton Live, MainStage,
+Studio One, Omnisphere, Kontakt, and a Korg Triton. My music technology
+projects (PulseMIDI, PulsePad) are a direct expression of building tools for
+the problems I live with as a performing musician.
+
+───────────────────────────────────────────────────────────────
+
+IN SUMMARY
+
+I am a frontend engineer who takes his work seriously — not just technically,
+but in terms of the real-world impact it has. Whether I am building a payment
+checkout that processes thousands of transactions, an architecture migration
+that gives a team back their velocity, or a MIDI tool for live performance,
+I approach every problem with the same discipline: understand it fully, build
+it carefully, and make sure it holds up.
+
+I am looking for environments where the work matters, where technical rigour
+is valued, and where there is room to grow. I want to be part of teams building
+things that genuinely serve people.
+
+If you would like to talk, reach me at ernestniiyoyowah@gmail.com
+or +233 50 692 3484.
+
+───────────────────────────────────────────────────────────────
