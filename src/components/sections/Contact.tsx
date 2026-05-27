@@ -24,7 +24,7 @@ const socialLinks = [
   {
     label: "GitHub",
     handle: "@ernestyoyowah",
-    href: "https://github.com/ernestyoyowah",
+    href: "https://github.com/Ernest-Yoyowah",
     icon: GithubIcon,
     description: "Code & open source",
   },

@@ -22,7 +22,7 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 const links: { label: string; href: string; icon: IconComponent }[] = [
   {
     label: "GitHub",
-    href: "https://github.com/ernestyoyowah",
+    href: "https://github.com/Ernest-Yoyowah",
     icon: GithubIcon,
   },
   {

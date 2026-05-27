@@ -7,7 +7,7 @@ export const personal = {
   location: "Accra, Ghana",
   email: "ernestniiyoyowah@gmail.com",
   phone: "+233506923484",
-  github: "https://github.com/ernestyoyowah",
+  github: "https://github.com/Ernest-Yoyowah",
   linkedin: "https://linkedin.com/in/ernestyoyowah",
 };
 
@@ -35,7 +35,7 @@ export const experiences = [
         description:
           "Leading frontend on MTN Pay and the Self Service Portal — MTN's payment gateway and self-service platform for broadband, bundles, SIM, and eSIM management.",
         highlights: [
-          "Built secure payment flows for Mobile Money, PCI DSS–compliant Mastercard checkout, and airtime across broadband and digital services",
+          "Built secure payment flows for Mobile Money, PCI DSS-compliant Mastercard checkout, and airtime across broadband and digital services",
           "Engineered end-to-end transaction flows — MSISDN input, OTP verification, async status handling — with resilient retry and duplicate-submission logic",
           "Implemented SIM swap validation and Ghana Card (NIA) identity verification for high-risk operations",
           "Enforced OWASP-aligned security across all flows: input sanitisation, secure token handling, no hardcoded secrets, safe redirects",
@@ -45,7 +45,7 @@ export const experiences = [
         systems: [
           "MTN Pay",
           "MTN SSP",
-          "Mobile Money",
+          "Airtime & Bundle Payments",
           "Mastercard",
           "PCI DSS",
         ],
@@ -65,7 +65,7 @@ export const experiences = [
           "Contributed to Agile delivery — sprint planning, feature demos, and iterative feedback loops",
         ],
         stack: ["React", "TypeScript", "Node.js", "MongoDB", "Golang"],
-        systems: ["MTN Pulse", "MyMTN App", "Mobile Money"],
+        systems: ["MTN Pulse", "MyMTN App"],
       },
     ],
   },

@@ -241,7 +241,7 @@ export function Hero() {
               className="flex items-center gap-4 pt-1"
             >
               <a
-                href="https://github.com/ernestyoyowah"
+                href="https://github.com/Ernest-Yoyowah"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
