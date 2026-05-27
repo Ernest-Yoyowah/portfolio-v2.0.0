@@ -44,8 +44,9 @@ const useCategories: UseCategory[] = [
         description: "Payment service backends, high-throughput APIs.",
       },
       {
-        name: "Rust",
-        description: "System-level tools — CoreMIDI, CoreAudio, native apps.",
+        name: "Swift",
+        description:
+          "Native macOS music tools — CoreMIDI, SwiftUI, AudioUnit v3.",
       },
     ],
   },

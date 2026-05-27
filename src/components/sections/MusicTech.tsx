@@ -9,12 +9,18 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    transition: {
+      duration: 0.55,
+      delay: i * 0.07,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
   }),
 };
 
 function Waveform() {
-  const bars = [4, 7, 5, 9, 6, 8, 4, 7, 5, 10, 6, 8, 5, 7, 4, 9, 6, 5, 8, 7, 4, 6, 9, 5, 7];
+  const bars = [
+    4, 7, 5, 9, 6, 8, 4, 7, 5, 10, 6, 8, 5, 7, 4, 9, 6, 5, 8, 7, 4, 6, 9, 5, 7,
+  ];
   return (
     <div className="flex items-end gap-[3px] h-10 my-4" aria-hidden="true">
       {bars.map((h, i) => (
@@ -25,7 +31,7 @@ function Waveform() {
           animate={{
             height: [
               `${(h / 10) * 100}%`,
-              `${((h % 6 + 2) / 10) * 100}%`,
+              `${(((h % 6) + 2) / 10) * 100}%`,
               `${(h / 10) * 100}%`,
             ],
           }}
@@ -47,10 +53,12 @@ function CreativeIntro() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      }}
       className="relative glass rounded-2xl p-7 md:p-9 border border-white/[0.06] overflow-hidden mb-12"
     >
-      
       <div
         className="absolute inset-0 bg-gradient-to-br from-violet-500/[0.06] via-transparent to-purple-600/[0.04] pointer-events-none"
         aria-hidden="true"
@@ -70,11 +78,11 @@ function CreativeIntro() {
             <span className="gradient-text-subtle">Musicians & Creators</span>
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Music technology isn&apos;t a hobby — it&apos;s a discipline. I build systems that
-            give musicians real-time control, reliable performance, and
-            expressive freedom. From CoreMIDI routing in Rust to MainStage rigs
-            for live worship, I approach music with the same engineering rigor
-            as payment systems.
+            Music technology isn&apos;t a hobby — it&apos;s a discipline. I
+            build systems that give musicians real-time control, reliable
+            performance, and expressive freedom. From CoreMIDI routing in Swift
+            to MainStage rigs for live worship, I approach music with the same
+            engineering rigor as payment systems.
           </p>
         </div>
         <div>
@@ -84,9 +92,9 @@ function CreativeIntro() {
             </p>
             <Waveform />
             <div className="flex justify-between text-[10px] font-mono text-muted-foreground/60 mt-1">
-              <span>CoreMIDI</span>
-              <span>127 devices</span>
-              <span>0.3ms latency</span>
+              <span>Swift + CoreMIDI</span>
+              <span>Universal Binary</span>
+              <span>macOS 12+</span>
             </div>
           </div>
         </div>
@@ -96,13 +104,25 @@ function CreativeIntro() {
 }
 
 function ToolStack() {
-  const categories = ["DAW", "Synthesis", "Sampling", "Hardware", "System", "Language", "Framework", "Standard"];
+  const categories = [
+    "DAW",
+    "Synthesis",
+    "Sampling",
+    "Hardware",
+    "System",
+    "Language",
+    "Framework",
+    "Standard",
+  ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      }}
       className="glass rounded-2xl p-6 border border-white/[0.06] mb-12"
     >
       <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground mb-5">
@@ -142,7 +162,7 @@ export function MusicTech() {
         className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
         aria-hidden="true"
       />
-      
+
       <div
         className="absolute -top-48 right-0 w-[500px] h-[500px] rounded-full bg-violet-600/[0.03] blur-[100px] pointer-events-none"
         aria-hidden="true"
@@ -159,7 +179,6 @@ export function MusicTech() {
 
         <ToolStack />
 
-        
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {musicTechCapabilities.map((cap, i) => (
             <motion.div
@@ -191,12 +210,15 @@ export function MusicTech() {
           ))}
         </div>
 
-        
         <motion.blockquote
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+          transition={{
+            duration: 0.6,
+            delay: 0.2,
+            ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+          }}
           className="mt-12 glass rounded-2xl p-7 border border-violet-400/10 text-center"
         >
           <p className="text-lg md:text-xl text-foreground/80 leading-relaxed font-light italic max-w-2xl mx-auto">

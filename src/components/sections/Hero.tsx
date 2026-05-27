@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { SVGProps } from "react";
 
 function GithubIcon(props: SVGProps<SVGSVGElement>) {
@@ -30,7 +30,7 @@ const fadeUp = (delay = 0) => ({
   },
 });
 
-const techPills = ["React", "TypeScript", "Node.js", "Golang", "Next.js"];
+const techPills = ["React", "TypeScript", "Node.js", "Golang", "Swift"];
 
 function HeroBackground() {
   return (
@@ -58,7 +58,7 @@ function HeroBackground() {
   );
 }
 
-function TransactionCard() {
+function CurrentRoleCard() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, rotate: -1 }}
@@ -76,38 +76,42 @@ function TransactionCard() {
         </div>
         <div>
           <p className="text-[10px] text-muted-foreground font-mono">
-            Transaction
+            Currently at
           </p>
-          <p className="text-xs font-semibold text-foreground">Approved</p>
+          <p className="text-xs font-semibold text-foreground">MTN Ghana</p>
         </div>
       </div>
       <div className="space-y-1.5">
         <div className="flex justify-between items-center">
           <span className="text-[10px] text-muted-foreground font-mono">
-            Amount
+            Role
           </span>
           <span className="text-[11px] font-mono text-foreground">
-            GHS 2,450.00
+            Lead Frontend Eng.
           </span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-[10px] text-muted-foreground font-mono">
-            Network
+            Team
           </span>
-          <span className="text-[11px] font-mono text-[#22d3ee]">MTN MoMo</span>
+          <span className="text-[11px] font-mono text-[#22d3ee]">
+            MTN Pay · SSP
+          </span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-[10px] text-muted-foreground font-mono">
-            Latency
+            Stack
           </span>
-          <span className="text-[11px] font-mono text-emerald-400">342ms</span>
+          <span className="text-[11px] font-mono text-muted-foreground">
+            React · Node.js · Go
+          </span>
         </div>
       </div>
     </motion.div>
   );
 }
 
-function SystemCard() {
+function StudiosCard() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, rotate: 1 }}
@@ -120,23 +124,34 @@ function SystemCard() {
       className="glass rounded-2xl p-4 min-w-[190px] shadow-2xl"
     >
       <div className="flex items-center gap-2 mb-3">
-        <Cpu size={14} className="text-[#22d3ee]" />
         <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">
-          System Status
+          Ernest Keyz Studios
         </span>
       </div>
       <div className="space-y-1.5">
         {[
-          { label: "MoMo Gateway", status: "Online" },
-          { label: "Card Checkout", status: "Online" },
-          { label: "OTP Service", status: "Online" },
+          { name: "PulseMIDI", status: "Available" },
+          { name: "PulseControl Bridge", status: "Available" },
+          { name: "PulseControl Mobile", status: "In Dev" },
         ].map((item) => (
-          <div key={item.label} className="flex justify-between items-center">
+          <div key={item.name} className="flex justify-between items-center">
             <span className="text-[10px] text-muted-foreground font-mono">
-              {item.label}
+              {item.name}
             </span>
-            <span className="flex items-center gap-1 text-[10px] text-emerald-400 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+            <span
+              className={`flex items-center gap-1 text-[10px] font-mono ${
+                item.status === "Available"
+                  ? "text-emerald-400"
+                  : "text-amber-400"
+              }`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full inline-block ${
+                  item.status === "Available"
+                    ? "bg-emerald-400"
+                    : "bg-amber-400"
+                }`}
+              />
               {item.status}
             </span>
           </div>
@@ -171,12 +186,12 @@ export function Hero() {
                 {...fadeUp(0.2)}
                 className="text-5xl md:text-6xl lg:text-[4.25rem] font-semibold tracking-tight leading-[1.06]"
               >
-                <span className="text-foreground">Building Secure</span>
+                <span className="text-foreground">Software Engineer</span>
                 <br />
-                <span className="gradient-text">Payment Systems</span>
+                <span className="gradient-text">Full-Stack · Payments</span>
                 <br />
                 <span className="text-foreground/70 text-4xl md:text-5xl lg:text-[3.5rem]">
-                  & Transaction Infrastructure
+                  & Native macOS Tools
                 </span>
               </motion.h1>
             </div>
@@ -185,11 +200,10 @@ export function Hero() {
               {...fadeUp(0.35)}
               className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg"
             >
-              Software engineer contributing to{" "}
-              <span className="text-foreground/80">MTN Ghana</span> — building
-              secure payment flows for Mobile Money, PCI DSS-compliant
-              Mastercard checkout, and airtime. Focused on transaction
-              reliability, security, and user experience.
+              Working at <span className="text-foreground/80">MTN Ghana</span>{" "}
+              on payment flows, mobile platforms, and backend services. Also
+              building native macOS and cross-platform mobile tools under{" "}
+              <span className="text-foreground/80">Ernest Keyz Studios</span>.
             </motion.p>
 
             <motion.div {...fadeUp(0.45)} className="flex flex-wrap gap-2">
@@ -253,11 +267,11 @@ export function Hero() {
 
           <div className="hidden lg:flex items-center justify-center relative h-[420px]">
             <div className="absolute top-8 left-0">
-              <TransactionCard />
+              <CurrentRoleCard />
             </div>
 
             <div className="absolute top-4 right-4">
-              <SystemCard />
+              <StudiosCard />
             </div>
 
             <div className="w-56 h-56 rounded-full bg-[#22d3ee]/[0.04] border border-[#22d3ee]/10 flex items-center justify-center">

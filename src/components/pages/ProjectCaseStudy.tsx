@@ -26,7 +26,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
-      <div className="container-max section-padding pt-8 pb-32">
+      <div className="container-max section-padding pt-30 pb-32">
         <motion.div
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}

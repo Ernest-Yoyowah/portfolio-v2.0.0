@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · Ernest Yoyowah",
   },
   description:
-    "Software Engineer at MTN Ghana building secure payment systems — Mobile Money, PCI DSS-compliant Mastercard checkout, and high-volume transaction infrastructure. Also engineering music technology tools in Rust and Tauri.",
+    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under Ernest Keyz Studios (Swift, CoreMIDI, AudioUnit v3).",
   keywords: [
     "Software Engineer Ghana",
     "Payment Systems Engineer",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "Mastercard checkout integration",
     "React TypeScript Node.js",
     "MIDI engineering",
-    "Rust Tauri developer",
+    "Swift CoreMIDI developer",
     "Ernest Yoyowah",
     "Accra software engineer",
     "West Africa fintech",
@@ -110,7 +110,7 @@ const jsonLd = {
     "TypeScript",
     "Node.js",
     "Golang",
-    "Rust",
+    "Swift",
     "MIDI Engineering",
     "Music Technology",
   ],

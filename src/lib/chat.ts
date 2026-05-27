@@ -224,14 +224,33 @@ export function getResponse(input: string): string {
     if (p) return `${p.title} — ${p.description} Stack: ${p.stack.join(", ")}.`;
   }
 
-  if (m(q, ["pulsemidi", "midi", "tauri", "coremidi", "vst", "clap"])) {
+  if (
+    m(q, [
+      "pulsemidi",
+      "midi",
+      "swift",
+      "swiftui",
+      "coremidi",
+      "audiounit",
+      "clap",
+    ])
+  ) {
     const p = projects.find((p) => p.id === "pulsemidi");
     if (p) return `${p.title} — ${p.description} Stack: ${p.stack.join(", ")}.`;
   }
 
-  if (m(q, ["pulsepad", "pad controller", "performance pad"])) {
-    const p = projects.find((p) => p.id === "pulsepad");
-    if (p) return `${p.title} — ${p.description}`;
+  if (
+    m(q, [
+      "pulsecontrol",
+      "pulse control",
+      "control bridge",
+      "control mobile",
+      "wireless midi",
+    ])
+  ) {
+    const bridge = projects.find((p) => p.id === "pulsecontrol-bridge");
+    const mobile = projects.find((p) => p.id === "pulsecontrol-mobile");
+    return `PulseControl is a two-part system Ernest is building under Ernest Keyz Studios. ${bridge ? `PulseControl Bridge: ${bridge.description}` : ""} ${mobile ? `PulseControl Mobile: ${mobile.description}` : ""}`;
   }
 
   if (
@@ -257,7 +276,7 @@ export function getResponse(input: string): string {
   }
 
   if (m(q, ["rust"])) {
-    return `Ernest uses Rust for native system-level tooling — specifically CoreMIDI and CoreAudio integration in his PulseMIDI and PulsePad music technology projects.`;
+    return `Ernest has used Rust in past experiments but his current music technology projects (PulseMIDI, PulseControl Bridge) are built in Swift and SwiftUI with CoreMIDI.`;
   }
 
   if (m(q, ["frontend", "react", "next.js", "nextjs", "tailwind"])) {
@@ -325,7 +344,7 @@ export function getResponse(input: string): string {
       "producer",
     ])
   ) {
-    return `Ernest is also a musician and keyboardist. He builds native music technology tools — PulseMIDI (CoreMIDI in Rust, VST3/CLAP, Intel + Apple Silicon) and PulsePad (a live performance system). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
+    return `Ernest is also a musician and keyboardist. He builds native music tools under Ernest Keyz Studios — PulseMIDI (Swift + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (iOS/Android wireless controller, in development). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
   }
 
   if (
