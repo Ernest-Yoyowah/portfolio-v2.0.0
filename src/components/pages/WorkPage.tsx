@@ -25,6 +25,18 @@ const fadeUp = {
   }),
 };
 
+type SubRole = {
+  id: string;
+  role: string;
+  team: string;
+  period: string;
+  isCurrent: boolean;
+  description: string;
+  highlights: string[];
+  stack: string[];
+  systems: string[];
+};
+
 const stackCategories: {
   label: string;
   key: keyof typeof techStack;
@@ -48,87 +60,174 @@ export function WorkPage() {
           description="A detailed record of systems engineered, infrastructure scaled, and financial flows secured."
         />
 
-        {experiences.map((exp, idx) => (
-          <motion.article
-            key={exp.id}
-            custom={idx}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUp}
-            className="mb-12"
-          >
-            <div className="glass rounded-2xl p-7 md:p-10 border border-white/[0.06]">
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-8">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/20 uppercase tracking-wider">
-                      {exp.type}
-                    </span>
-                    {exp.isCurrent && (
-                      <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
-                        Current
+        {experiences.map((exp, idx) => {
+          const roles = (exp as typeof exp & { roles?: SubRole[] }).roles;
+          const isGrouped = Array.isArray(roles) && roles.length > 0;
+
+          return (
+            <motion.article
+              key={exp.id}
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              className="mb-12"
+            >
+              <div className="glass rounded-2xl p-7 md:p-10 border border-white/[0.06]">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-8">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/20 uppercase tracking-wider">
+                        {exp.type}
                       </span>
+                      {exp.isCurrent && !isGrouped && (
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    {isGrouped ? (
+                      <h2 className="text-2xl font-semibold text-foreground">
+                        {exp.company}
+                      </h2>
+                    ) : (
+                      <>
+                        <h2 className="text-2xl font-semibold text-foreground">
+                          {exp.role}
+                        </h2>
+                        <p className="text-[#22d3ee] font-medium mt-1 text-lg">
+                          {exp.company}
+                        </p>
+                      </>
                     )}
                   </div>
-                  <h2 className="text-2xl font-semibold text-foreground">
-                    {exp.role}
-                  </h2>
-                  <p className="text-[#22d3ee] font-medium mt-1 text-lg">
-                    {exp.company}
-                  </p>
-                </div>
-                <div className="flex flex-col items-start sm:items-end gap-1.5 text-xs text-muted-foreground font-mono flex-shrink-0">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={11} />
-                    {exp.period}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin size={11} />
-                    {exp.location}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-3xl">
-                {exp.description}
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-3 mb-8">
-                {exp.highlights.map((h) => (
-                  <div key={h} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={14}
-                      className="text-[#22d3ee] mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-sm text-muted-foreground leading-relaxed">
-                      {h}
+                  <div className="flex flex-col items-start sm:items-end gap-1.5 text-xs text-muted-foreground font-mono flex-shrink-0">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={11} />
+                      {exp.period}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MapPin size={11} />
+                      {exp.location}
                     </span>
                   </div>
-                ))}
-              </div>
+                </div>
 
-              <div className="flex flex-wrap gap-2 pt-6 border-t border-white/[0.06]">
-                {exp.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.07] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {exp.systems.map((sys) => (
-                  <span
-                    key={sys}
-                    className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#22d3ee]/[0.06] border border-[#22d3ee]/15 text-[#22d3ee]/80"
-                  >
-                    {sys}
-                  </span>
-                ))}
+                <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-3xl">
+                  {exp.description}
+                </p>
+
+                {isGrouped ? (
+                  <div className="space-y-8">
+                    {roles!.map((role, rIdx) => (
+                      <div
+                        key={role.id}
+                        className={
+                          rIdx > 0 ? "pt-8 border-t border-white/[0.05]" : ""
+                        }
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4">
+                          <div>
+                            <div className="flex items-center gap-2 mb-1">
+                              {role.isCurrent && (
+                                <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+                                  Current
+                                </span>
+                              )}
+                              <span className="text-[10px] font-mono text-muted-foreground/50 uppercase tracking-wider">
+                                {role.team}
+                              </span>
+                            </div>
+                            <h3 className="text-lg font-semibold text-foreground">
+                              {role.role}
+                            </h3>
+                          </div>
+                          <span className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground flex-shrink-0">
+                            <Calendar size={11} />
+                            {role.period}
+                          </span>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                          {role.description}
+                        </p>
+
+                        <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                          {role.highlights.map((h) => (
+                            <div key={h} className="flex items-start gap-3">
+                              <CheckCircle2
+                                size={14}
+                                className="text-[#22d3ee] mt-0.5 flex-shrink-0"
+                              />
+                              <span className="text-sm text-muted-foreground leading-relaxed">
+                                {h}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 pt-5 border-t border-white/[0.04]">
+                          {role.stack.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.07] text-muted-foreground"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {role.systems.map((sys) => (
+                            <span
+                              key={sys}
+                              className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#22d3ee]/[0.06] border border-[#22d3ee]/15 text-[#22d3ee]/80"
+                            >
+                              {sys}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <>
+                    <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                      {exp.highlights.map((h) => (
+                        <div key={h} className="flex items-start gap-3">
+                          <CheckCircle2
+                            size={14}
+                            className="text-[#22d3ee] mt-0.5 flex-shrink-0"
+                          />
+                          <span className="text-sm text-muted-foreground leading-relaxed">
+                            {h}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-6 border-t border-white/[0.06]">
+                      {exp.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.07] text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {exp.systems.map((sys) => (
+                        <span
+                          key={sys}
+                          className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#22d3ee]/[0.06] border border-[#22d3ee]/15 text-[#22d3ee]/80"
+                        >
+                          {sys}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
-            </div>
-          </motion.article>
-        ))}
+            </motion.article>
+          );
+        })}
 
         <div className="mt-20">
           <SectionHeader
