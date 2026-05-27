@@ -115,7 +115,7 @@ const jsonLd = {
     "Music Technology",
   ],
   sameAs: [
-    "https://github.com/ernestyoyowah",
+    "https://github.com/Ernest-Yoyowah",
     "https://linkedin.com/in/ernestyoyowah",
   ],
   address: {
