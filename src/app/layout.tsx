@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/ui/ChatWidget";
@@ -143,6 +144,28 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#0a0a0a] text-foreground antialiased">
+        <Script id="legacy-sw-cleanup" strategy="afterInteractive">
+          {`
+            (async () => {
+              if (!('serviceWorker' in navigator)) return;
+
+              try {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                await Promise.all(registrations.map((registration) => registration.unregister()));
+              } catch (_) {
+                // Ignore cleanup failures.
+              }
+
+              if (!('caches' in window)) return;
+              try {
+                const cacheNames = await caches.keys();
+                await Promise.all(cacheNames.map((name) => caches.delete(name)));
+              } catch (_) {
+                // Ignore cleanup failures.
+              }
+            })();
+          `}
+        </Script>
         <Navbar />
         {children}
         <Footer />

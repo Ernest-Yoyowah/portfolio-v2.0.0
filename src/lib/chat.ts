@@ -250,7 +250,7 @@ export function getResponse(input: string): string {
   ) {
     const bridge = projects.find((p) => p.id === "pulsecontrol-bridge");
     const mobile = projects.find((p) => p.id === "pulsecontrol-mobile");
-    return `PulseControl is a two-part system Ernest is building under Ernest Keyz Studios. ${bridge ? `PulseControl Bridge: ${bridge.description}` : ""} ${mobile ? `PulseControl Mobile: ${mobile.description}` : ""}`;
+    return `PulseControl is a two-part system by Ernest Keyz Studios. ${bridge ? `PulseControl Bridge: ${bridge.description}` : ""} ${mobile ? `PulseControl Mobile: ${mobile.description}` : ""}`;
   }
 
   if (
@@ -344,7 +344,7 @@ export function getResponse(input: string): string {
       "producer",
     ])
   ) {
-    return `Ernest is also a musician and keyboardist. He builds native music tools under Ernest Keyz Studios — PulseMIDI (Swift + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (iOS/Android wireless controller, in development). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
+    return `Ernest is also a musician and keyboardist. He builds native music tools under Ernest Keyz Studios — PulseMIDI (Swift + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (Android available now, iOS coming soon). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
   }
 
   if (
