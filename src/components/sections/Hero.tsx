@@ -132,7 +132,7 @@ function StudiosCard() {
         {[
           { name: "PulseMIDI", status: "Available" },
           { name: "PulseControl Bridge", status: "Available" },
-          { name: "PulseControl Mobile", status: "In Dev" },
+          { name: "PulseControl Mobile", status: "Android Live" },
         ].map((item) => (
           <div key={item.name} className="flex justify-between items-center">
             <span className="text-[10px] text-muted-foreground font-mono">
@@ -140,16 +140,12 @@ function StudiosCard() {
             </span>
             <span
               className={`flex items-center gap-1 text-[10px] font-mono ${
-                item.status === "Available"
-                  ? "text-emerald-400"
-                  : "text-amber-400"
+                item.status !== "In Dev" ? "text-emerald-400" : "text-amber-400"
               }`}
             >
               <span
                 className={`w-1.5 h-1.5 rounded-full inline-block ${
-                  item.status === "Available"
-                    ? "bg-emerald-400"
-                    : "bg-amber-400"
+                  item.status !== "In Dev" ? "bg-emerald-400" : "bg-amber-400"
                 }`}
               />
               {item.status}

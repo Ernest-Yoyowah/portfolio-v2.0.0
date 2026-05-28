@@ -370,17 +370,17 @@ export const projects = [
     title: "PulseControl Mobile",
     subtitle: "Wireless MIDI Control Surface",
     description:
-      "Wireless MIDI control surface for iPhone and Android — touch faders and rotary knobs over WebSocket, pairing with PulseControl Bridge via QR code scan.",
+      "Wireless MIDI control surface for Android (available) and iOS (coming soon) — touch faders and rotary knobs over WebSocket, pairing with PulseControl Bridge via QR code scan.",
     longDescription:
-      "PulseControl Mobile turns your iPhone or Android device into a wireless MIDI controller. Touch faders and rotary knobs send MIDI CC data to PulseControl Bridge over a WebSocket connection. Pairing is handled via QR code — no manual network configuration.",
+      "PulseControl Mobile turns your phone into a wireless MIDI controller. Android is available now, with iOS coming soon. Touch faders and rotary knobs send MIDI CC data to PulseControl Bridge over a WebSocket connection. Pairing is handled via QR code — no manual network configuration.",
     stack: ["React Native", "WebSocket", "iOS", "Android"],
     category: "Music Technology",
-    status: "In Development",
+    status: "Android Available",
     highlights: [
       "Touch faders and rotary knobs transmitting MIDI CC data",
       "WebSocket transport pairing with PulseControl Bridge",
       "QR code pairing — zero manual network configuration",
-      "Cross-platform iOS and Android",
+      "Android available now; iOS release in progress",
     ],
     gradient: "from-violet-500/10 to-purple-600/10",
     accentColor: "#a855f7",
