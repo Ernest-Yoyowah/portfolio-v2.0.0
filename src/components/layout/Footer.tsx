@@ -20,30 +20,17 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 const links: { label: string; href: string; icon: IconComponent }[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/Ernest-Yoyowah",
-    icon: GithubIcon,
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/ernestyoyowah",
-    icon: LinkedinIcon,
-  },
-  {
-    label: "Email",
-    href: "mailto:ernestniiyoyowah@gmail.com",
-    icon: Mail as unknown as IconComponent,
-  },
+  { label: "GitHub", href: "https://github.com/Ernest-Yoyowah", icon: GithubIcon },
+  { label: "LinkedIn", href: "https://linkedin.com/in/ernestyoyowah", icon: LinkedinIcon },
+  { label: "Email", href: "mailto:ernestniiyoyowah@gmail.com", icon: Mail as unknown as IconComponent },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] py-10 mt-0">
-      <div className="container-max section-padding flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="border-t border-border py-8 mt-0">
+      <div className="container-max section-padding flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Ernest Yoyowah. Built with Next.js &
-          TypeScript.
+          © {new Date().getFullYear()} Ernest Yoyowah
         </p>
         <div className="flex items-center gap-4">
           {links.map(({ label, href, icon: Icon }) => (
@@ -55,7 +42,7 @@ export function Footer() {
               aria-label={label}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Icon width={16} height={16} />
+              <Icon width={15} height={15} />
             </a>
           ))}
         </div>

@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ChatWidget } from "@/components/ui/ChatWidget";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,8 +22,7 @@ const siteUrl = "https://ernestyoyowah.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    default: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     template: "%s · Ernest Yoyowah",
   },
   description:
@@ -51,8 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Ernest Yoyowah",
-    title:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    title: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     description:
       "Software Engineer at MTN Ghana building secure payment systems and creative technology tools. Mobile Money, PCI DSS, Mastercard, MIDI engineering.",
     images: [
@@ -66,8 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    title: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     description:
       "Software Engineer at MTN Ghana building secure payment systems and creative technology tools.",
     images: ["/og-image.png"],
@@ -126,6 +122,8 @@ const jsonLd = {
   },
 };
 
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -134,42 +132,36 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#0a0a0a] text-foreground antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <Script id="legacy-sw-cleanup" strategy="afterInteractive">
           {`
             (async () => {
               if (!('serviceWorker' in navigator)) return;
-
               try {
                 const registrations = await navigator.serviceWorker.getRegistrations();
-                await Promise.all(registrations.map((registration) => registration.unregister()));
-              } catch (_) {
-                // Ignore cleanup failures.
-              }
-
+                await Promise.all(registrations.map((r) => r.unregister()));
+              } catch (_) {}
               if (!('caches' in window)) return;
               try {
                 const cacheNames = await caches.keys();
-                await Promise.all(cacheNames.map((name) => caches.delete(name)));
-              } catch (_) {
-                // Ignore cleanup failures.
-              }
+                await Promise.all(cacheNames.map((n) => caches.delete(n)));
+              } catch (_) {}
             })();
           `}
         </Script>
         <Navbar />
         {children}
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   );

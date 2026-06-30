@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -18,50 +17,47 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
+    setMounted(true);
+    const stored = localStorage.getItem("theme");
+    setTheme(stored === "light" ? "light" : "dark");
+  }, []);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+  };
+
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.6,
-          ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-        }}
+      <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled
-            ? "glass border-b border-white/[0.06] py-3"
-            : "py-5 bg-transparent",
+          "fixed top-0 inset-x-0 z-50 bg-background transition-all duration-200",
+          scrolled && "border-b border-border",
         )}
       >
-        <div className="container-max section-padding flex items-center justify-between">
+        <div className="container-max section-padding flex items-center justify-between h-14">
           <Link
             href="/"
-            className="group flex items-center gap-2.5"
+            className="text-sm font-semibold text-foreground tracking-tight"
             aria-label="Ernest Yoyowah — Home"
           >
-            <div className="w-7 h-7 rounded-lg bg-[#22d3ee]/10 border border-[#22d3ee]/20 flex items-center justify-center transition-all group-hover:bg-[#22d3ee]/20">
-              <span className="text-[#22d3ee] text-xs font-mono font-bold">
-                E
-              </span>
-            </div>
-            <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors">
-              Ernest Yoyowah
-            </span>
+            Ernest Yoyowah
           </Link>
 
-          <nav
-            className="hidden md:flex items-center gap-1"
-            aria-label="Main navigation"
-          >
+          <nav className="hidden md:flex items-center" aria-label="Main navigation">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -71,8 +67,8 @@ export function Navbar() {
                   className={cn(
                     "px-3.5 py-1.5 text-sm rounded-md transition-colors",
                     isActive
-                      ? "text-foreground bg-white/[0.06] font-medium"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/[0.04]",
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground hover:text-foreground",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -82,69 +78,69 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center gap-1">
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+              </button>
+            )}
             <a
               href="mailto:ernestniiyoyowah@gmail.com"
-              className="px-4 py-1.5 rounded-lg text-sm font-medium bg-white/[0.06] border border-white/[0.08] text-foreground/80 hover:text-foreground hover:bg-white/[0.1] transition-all"
+              className="hidden md:inline-flex items-center px-3.5 py-1.5 text-sm rounded-md bg-foreground text-background font-medium hover:opacity-90 transition-opacity ml-2"
             >
               Get in touch
             </a>
-          </div>
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
-      </motion.header>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[60px] z-40 glass border-b border-white/[0.06] md:hidden"
-          >
-            <nav
-              className="section-padding py-4 flex flex-col gap-1"
-              aria-label="Mobile navigation"
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
             >
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "px-3 py-2.5 text-sm rounded-md transition-colors",
-                      isActive
-                        ? "text-foreground bg-white/[0.06] font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/[0.04]",
-                    )}
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <a
-                href="mailto:ernestniiyoyowah@gmail.com"
-                onClick={() => setMenuOpen(false)}
-                className="mt-2 px-3 py-2.5 rounded-lg text-sm font-medium bg-[#22d3ee]/10 border border-[#22d3ee]/20 text-[#22d3ee] text-center"
-              >
-                Get in touch
-              </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              {menuOpen ? <X size={17} /> : <Menu size={17} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div className="fixed inset-x-0 top-14 z-40 bg-background border-b border-border md:hidden">
+          <nav
+            className="section-padding py-4 flex flex-col gap-0.5"
+            aria-label="Mobile navigation"
+          >
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={cn(
+                    "px-3 py-2.5 text-sm rounded-md transition-colors",
+                    isActive
+                      ? "text-foreground font-medium bg-muted"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                  )}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <a
+              href="mailto:ernestniiyoyowah@gmail.com"
+              onClick={() => setMenuOpen(false)}
+              className="mt-3 px-3 py-2.5 rounded-md text-sm font-medium bg-foreground text-background text-center"
+            >
+              Get in touch
+            </a>
+          </nav>
+        </div>
+      )}
     </>
   );
 }
