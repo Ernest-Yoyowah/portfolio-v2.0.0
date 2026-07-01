@@ -52,7 +52,7 @@ export function Hero() {
           <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-xl">
             Also building native macOS and cross-platform music tools at{" "}
             <span className="text-foreground font-medium">
-              Ernest Keyz Studios
+              StudioCTRL
             </span>{" "}
             — Tauri & Rust, CoreMIDI, AudioUnit v3.
           </p>

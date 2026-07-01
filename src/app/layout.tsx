@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · Ernest Yoyowah",
   },
   description:
-    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under Ernest Keyz Studios (React Native, Tauri & Rust, CoreMIDI, AudioUnit v3).",
+    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under StudioCTRL Technologies (React Native, Tauri & Rust, CoreMIDI, AudioUnit v3).",
   keywords: [
     "Software Engineer Ghana",
     "Payment Systems Engineer",
