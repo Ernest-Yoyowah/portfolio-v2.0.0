@@ -22,11 +22,12 @@ const siteUrl = "https://ernestyoyowah.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    default:
+      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     template: "%s · Ernest Yoyowah",
   },
   description:
-    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under Ernest Keyz Studios (Swift, CoreMIDI, AudioUnit v3).",
+    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under Ernest Keyz Studios (React Native, Tauri & Rust, CoreMIDI, AudioUnit v3).",
   keywords: [
     "Software Engineer Ghana",
     "Payment Systems Engineer",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     "Mastercard checkout integration",
     "React TypeScript Node.js",
     "MIDI engineering",
-    "Swift CoreMIDI developer",
+    "CoreMIDI developer",
     "Ernest Yoyowah",
     "Accra software engineer",
     "West Africa fintech",
@@ -49,7 +50,8 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Ernest Yoyowah",
-    title: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    title:
+      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     description:
       "Software Engineer at MTN Ghana building secure payment systems and creative technology tools. Mobile Money, PCI DSS, Mastercard, MIDI engineering.",
     images: [
@@ -63,7 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+    title:
+      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
     description:
       "Software Engineer at MTN Ghana building secure payment systems and creative technology tools.",
     images: ["/og-image.png"],
@@ -107,7 +110,8 @@ const jsonLd = {
     "TypeScript",
     "Node.js",
     "Golang",
-    "Swift",
+    "React Native",
+    "Tauri",
     "MIDI Engineering",
     "Music Technology",
   ],

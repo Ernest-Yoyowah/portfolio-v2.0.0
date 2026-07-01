@@ -18,19 +18,38 @@ const useCategories: UseCategory[] = [
   {
     label: "Languages",
     items: [
-      { name: "TypeScript", description: "Default for all frontend and backend projects." },
+      {
+        name: "TypeScript",
+        description: "Default for all frontend and backend projects.",
+      },
       { name: "JavaScript", description: "Core web and Node.js scripting." },
-      { name: "Golang", description: "Payment service backends, high-throughput APIs." },
-      { name: "Swift", description: "Native macOS music tools — CoreMIDI, SwiftUI, AudioUnit v3." },
+      {
+        name: "Golang",
+        description: "Payment service backends, high-throughput APIs.",
+      },
+      {
+        name: "Rust",
+        description: "Native macOS music tools — CoreMIDI, AudioUnit v3.",
+      },
     ],
   },
   {
     label: "Frontend",
     items: [
-      { name: "React", description: "Component architecture for all web interfaces." },
-      { name: "React Native", description: "Cross-platform mobile applications." },
-      { name: "Next.js", description: "App Router, RSC, static + server rendering." },
+      {
+        name: "React",
+        description: "Component architecture for all web interfaces.",
+      },
+      {
+        name: "React Native",
+        description: "Cross-platform mobile applications.",
+      },
+      {
+        name: "Next.js",
+        description: "App Router, RSC, static + server rendering.",
+      },
       { name: "Tailwind CSS", description: "Utility-first CSS." },
+      { name: "Tauri", description: "Cross-platform desktop applications." },
     ],
   },
   {
@@ -39,13 +58,19 @@ const useCategories: UseCategory[] = [
       { name: "Node.js", description: "API servers, scripting, tooling." },
       { name: "Express", description: "REST API framework." },
       { name: "MongoDB", description: "Document store for application data." },
-      { name: "MySQL", description: "Relational database for structured data." },
+      {
+        name: "MySQL",
+        description: "Relational database for structured data.",
+      },
     ],
   },
   {
     label: "State Management",
     items: [
-      { name: "Redux", description: "Predictable state container for complex apps." },
+      {
+        name: "Redux",
+        description: "Predictable state container for complex apps.",
+      },
       { name: "Zustand", description: "Lightweight state management." },
     ],
   },
@@ -53,14 +78,23 @@ const useCategories: UseCategory[] = [
     label: "Security & Compliance",
     items: [
       { name: "Auth0", description: "Identity and access management." },
-      { name: "OWASP", description: "Security standards and vulnerability prevention." },
-      { name: "PCI DSS", description: "Payment card industry compliance standards." },
+      {
+        name: "OWASP",
+        description: "Security standards and vulnerability prevention.",
+      },
+      {
+        name: "PCI DSS",
+        description: "Payment card industry compliance standards.",
+      },
     ],
   },
   {
     label: "Music Production",
     items: [
-      { name: "Ableton Live", description: "Production, arrangement, and live performance." },
+      {
+        name: "Ableton Live",
+        description: "Production, arrangement, and live performance.",
+      },
       { name: "MainStage", description: "Live keyboard rigs. Zero-latency." },
       { name: "Studio One", description: "Mixing and mastering sessions." },
       { name: "Omnisphere", description: "Synthesis and sound design." },

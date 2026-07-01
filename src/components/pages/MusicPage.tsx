@@ -34,14 +34,23 @@ export function MusicPage() {
           </h2>
           <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-2xl">
             PulseMIDI is a native macOS application for MIDI signal monitoring,
-            device enumeration, and virtual port routing. Built with Swift and
-            SwiftUI for a native macOS experience, using CoreMIDI for direct
-            MIDI framework access. Targets Apple Silicon and Intel Macs on
-            macOS 12+. Distributed as a standalone application with AudioUnit
-            v3 and CLAP plugin support.
+            device enumeration, and virtual port routing. Built with Tauri and
+            Rust for a native macOS experience, using CoreMIDI for direct MIDI
+            framework access. Targets Apple Silicon and Intel Macs on macOS 12+.
+            Distributed as a standalone application with AudioUnit v3 and CLAP
+            plugin support.
           </p>
           <div className="flex flex-wrap gap-1.5">
-            {["Swift", "SwiftUI", "CoreMIDI", "AudioUnit v3", "CLAP SDK", "Apple Silicon", "Intel", "macOS 12+"].map((tag) => (
+            {[
+              "React Native",
+              "Tauri",
+              "CoreMIDI",
+              "AudioUnit v3",
+              "CLAP SDK",
+              "Apple Silicon",
+              "Intel",
+              "macOS 12+",
+            ].map((tag) => (
               <span
                 key={tag}
                 className="px-2.5 py-1 rounded text-xs font-mono border border-border text-muted-foreground"

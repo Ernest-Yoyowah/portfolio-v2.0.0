@@ -326,14 +326,14 @@ export const projects = [
     title: "PulseMIDI",
     subtitle: "MIDI Diagnostics & Monitoring",
     description:
-      "Native macOS MIDI diagnostic tool — realtime signal inspection, device enumeration, and virtual port routing. Built with Swift and CoreMIDI. Distributed as standalone, AudioUnit v3, and CLAP.",
+      "Native macOS MIDI diagnostic tool — realtime signal inspection, device enumeration, and virtual port routing. Built with Tauri & Rust and CoreMIDI. Distributed as standalone, AudioUnit v3, and CLAP.",
     longDescription:
-      "PulseMIDI is a native macOS application for MIDI signal monitoring, device management, and port routing. Built with Swift and SwiftUI, using CoreMIDI for system-level MIDI access and the CLAP SDK for plugin distribution. Ships as a universal binary targeting Apple Silicon and Intel Macs on macOS 12+.",
-    stack: ["Swift", "SwiftUI", "CoreMIDI", "AudioUnit v3", "CLAP SDK"],
+      "PulseMIDI is a native macOS application for MIDI signal monitoring, device management, and port routing. Built with Tauri & Rust, using CoreMIDI for system-level MIDI access and the CLAP SDK for plugin distribution. Ships as a universal binary targeting Apple Silicon and Intel Macs on macOS 12+.",
+    stack: ["Tauri & Rust", "CoreMIDI", "AudioUnit v3", "CLAP SDK"],
     category: "Music Technology",
     status: "Available",
     highlights: [
-      "Native Swift + SwiftUI with direct CoreMIDI framework access",
+      "Tauri & Rust with direct CoreMIDI framework access",
       "Realtime MIDI signal visualisation and device enumeration",
       "Virtual MIDI port creation and routing",
       "Universal binary — Apple Silicon + Intel, macOS 12+",
@@ -351,7 +351,7 @@ export const projects = [
       "Native macOS desktop bridge connecting mobile controllers to DAWs via CoreMIDI and WebSocket. Advertises itself on the local network via Bonjour/mDNS for zero-config pairing. macOS 11+, universal binary.",
     longDescription:
       "PulseControl Bridge is a native macOS application that bridges the PulseControl Mobile app to your DAW over a local WebSocket connection. Devices discover each other via Bonjour/mDNS — no configuration required. Creates virtual MIDI output ports via CoreMIDI for seamless DAW integration.",
-    stack: ["Swift", "Network.framework", "Bonjour/mDNS", "CoreMIDI"],
+    stack: ["Tauri & Rust", "Network.framework", "Bonjour/mDNS", "CoreMIDI"],
     category: "Music Technology",
     status: "Available",
     highlights: [
@@ -437,21 +437,14 @@ export const musicTechCapabilities = [
   {
     title: "Realtime MIDI Processing & Port Routing",
     description:
-      "CoreMIDI-based event capture, virtual port creation, MIDI device enumeration, and low-latency message routing. PulseMIDI implements this layer in Swift with direct CoreMIDI framework access.",
-    tags: ["CoreMIDI", "Swift", "Virtual Ports", "Device Enumeration"],
+      "CoreMIDI-based event capture, virtual port creation, MIDI device enumeration, and low-latency message routing. PulseMIDI implements this layer in Tauri & Rust with direct CoreMIDI framework access.",
+    tags: ["CoreMIDI", "Tauri & Rust", "Virtual Ports", "Device Enumeration"],
   },
   {
     title: "Native Desktop Music Software",
     description:
-      "macOS native application development in Swift and SwiftUI targeting Apple Silicon and Intel. Standalone and plugin distribution — AudioUnit v3 and CLAP — with universal binary packaging.",
-    tags: [
-      "Swift",
-      "SwiftUI",
-      "AudioUnit v3",
-      "CLAP",
-      "Apple Silicon",
-      "Intel",
-    ],
+      "macOS native application development in Tauri & Rust targeting Apple Silicon and Intel. Standalone and plugin distribution — AudioUnit v3 and CLAP — with universal binary packaging.",
+    tags: ["Tauri & Rust", "AudioUnit v3", "CLAP", "Apple Silicon", "Intel"],
   },
   {
     title: "DAW Ecosystems & Plugin Integration",
@@ -494,8 +487,9 @@ export const musicStack = [
   { name: "Korg Triton", category: "Hardware" },
   { name: "CoreMIDI", category: "System" },
   { name: "CoreAudio", category: "System" },
-  { name: "Swift", category: "Language" },
-  { name: "SwiftUI", category: "Framework" },
+  { name: "Rust", category: "Language" },
+  { name: "TypeScript", category: "Language" },
+  { name: "Tauri", category: "Framework" },
   { name: "VST3", category: "Standard" },
   { name: "CLAP", category: "Standard" },
 ];
@@ -522,14 +516,14 @@ export const articles = [
     tags: ["PCI DSS", "Security", "React"],
   },
   {
-    id: "swift-coremidi",
-    title: "Building Native macOS MIDI Tools with Swift and CoreMIDI",
+    id: "tauri-coremidi",
+    title: "Building Native macOS MIDI Tools with Tauri & Rust and CoreMIDI",
     excerpt:
-      "A practical guide to accessing macOS CoreMIDI from Swift — device enumeration, virtual port creation, and real-time message handling.",
+      "A practical guide to accessing macOS CoreMIDI from Tauri & Rust — device enumeration, virtual port creation, and real-time message handling.",
     category: "Music Technology",
     readTime: "10 min read",
     date: "Coming Soon",
-    tags: ["Swift", "MIDI", "macOS"],
+    tags: ["Tauri & Rust", "MIDI", "macOS"],
   },
   {
     id: "observability-payments",

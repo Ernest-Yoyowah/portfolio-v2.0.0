@@ -32,11 +32,11 @@ export function MusicTech() {
                 I engineer tools for musicians and creators.
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Music technology isn&apos;t a hobby — it&apos;s a discipline. I build
-                systems that give musicians real-time control, reliable
+                Music technology isn&apos;t a hobby — it&apos;s a discipline. I
+                build systems that give musicians real-time control, reliable
                 performance, and expressive freedom. From CoreMIDI routing in
-                Swift to MainStage rigs for live worship, I approach music with
-                the same engineering rigor as payment systems.
+                Tauri & Rust to MainStage rigs for live worship, I approach
+                music with the same engineering rigor as payment systems.
               </p>
             </div>
             <div className="border border-border rounded-lg p-5">
@@ -98,8 +98,8 @@ export function MusicTech() {
 
         <blockquote className="border border-border rounded-lg p-6 text-center">
           <p className="text-base text-muted-foreground leading-relaxed italic max-w-xl mx-auto">
-            &ldquo;The best music technology disappears. The musician stops thinking
-            about the tool and starts thinking about the music.&rdquo;
+            &ldquo;The best music technology disappears. The musician stops
+            thinking about the tool and starts thinking about the music.&rdquo;
           </p>
           <p className="mt-3 text-xs font-mono text-muted-foreground uppercase tracking-wider">
             Creative Philosophy

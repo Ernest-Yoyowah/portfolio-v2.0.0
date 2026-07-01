@@ -228,8 +228,8 @@ export function getResponse(input: string): string {
     m(q, [
       "pulsemidi",
       "midi",
-      "swift",
-      "swiftui",
+      "Tauri",
+      "React Native",
       "coremidi",
       "audiounit",
       "clap",
@@ -276,7 +276,7 @@ export function getResponse(input: string): string {
   }
 
   if (m(q, ["rust"])) {
-    return `Ernest has used Rust in past experiments but his current music technology projects (PulseMIDI, PulseControl Bridge) are built in Swift and SwiftUI with CoreMIDI.`;
+    return `Ernest has used Rust in past experiments but his current music technology projects (PulseMIDI, PulseControl Bridge) are built in Tauri & Rust with CoreMIDI.`;
   }
 
   if (m(q, ["frontend", "react", "next.js", "nextjs", "tailwind"])) {
@@ -344,7 +344,7 @@ export function getResponse(input: string): string {
       "producer",
     ])
   ) {
-    return `Ernest is also a musician and keyboardist. He builds native music tools under Ernest Keyz Studios — PulseMIDI (Swift + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (Android available now, iOS coming soon). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
+    return `Ernest is also a musician and keyboardist. He builds native music tools under Ernest Keyz Studios — PulseMIDI (Tauri & Rust + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (Android available now, iOS coming soon). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
   }
 
   if (
