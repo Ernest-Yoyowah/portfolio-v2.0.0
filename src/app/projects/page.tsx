@@ -4,7 +4,7 @@ import { ProjectsPage } from "@/components/pages/ProjectsPage";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Projects by Ernest Yoyowah — MTN Pay, Self Service Portal, MTN Auth, Autosurveil GPS, PulseMIDI, and more.",
+    "Projects by Ernest Yoyowah — MTN Pay, Self Service Portal, MTN Auth, Autosurveil GPS, and more.",
 };
 
 export default function Projects() {

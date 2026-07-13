@@ -50,9 +50,9 @@ export function Contact() {
             Let&apos;s build something meaningful.
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed mb-2">
-            Whether you&apos;re building payment infrastructure, exploring creative
-            technology, or want to talk systems engineering — I&apos;m open to
-            interesting conversations.
+            Whether you&apos;re building payment infrastructure, scaling backend
+            systems, or want to talk engineering — I&apos;m open to interesting
+            conversations.
           </p>
           <p className="flex items-center gap-1.5 text-sm font-mono text-muted-foreground mb-10">
             <MapPin size={12} />

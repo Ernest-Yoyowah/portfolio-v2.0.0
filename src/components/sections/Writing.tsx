@@ -10,7 +10,7 @@ export function Writing() {
         <SectionHeader
           eyebrow="Writing"
           title="Engineering Notebook"
-          description="Thinking in public about payment systems, reliability engineering, music technology, and the craft of building software."
+          description="Thinking in public about payment systems, reliability engineering, and the craft of building software."
         />
 
         <div className="divide-y divide-border border border-border rounded-lg overflow-hidden">

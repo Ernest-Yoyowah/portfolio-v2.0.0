@@ -18,7 +18,7 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-const techStack = ["React", "TypeScript", "Node.js", "Golang", "Tauri"];
+const techStack = ["React", "TypeScript", "Node.js", "Golang", "Next.js"];
 
 export function Hero() {
   return (
@@ -40,21 +40,14 @@ export function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground font-light mb-8 leading-relaxed">
-            Software Engineer — Payments & Creative Technology
+            Software Engineer — Payments & Systems
           </p>
 
-          <p className="text-base text-muted-foreground leading-relaxed mb-2 max-w-xl">
+          <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-xl">
             Building secure payment infrastructure and transaction systems at{" "}
             <span className="text-foreground font-medium">MTN Ghana</span> —
             Mobile Money, PCI DSS–compliant card flows, and backend services at
             scale.
-          </p>
-          <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-xl">
-            Also building native macOS and cross-platform music tools at{" "}
-            <span className="text-foreground font-medium">
-              StudioCTRL
-            </span>{" "}
-            — Tauri & Rust, CoreMIDI, AudioUnit v3.
           </p>
 
           <div className="flex flex-wrap gap-2 mb-10">

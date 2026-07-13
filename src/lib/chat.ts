@@ -226,35 +226,6 @@ export function getResponse(input: string): string {
 
   if (
     m(q, [
-      "pulsemidi",
-      "midi",
-      "Tauri",
-      "React Native",
-      "coremidi",
-      "audiounit",
-      "clap",
-    ])
-  ) {
-    const p = projects.find((p) => p.id === "pulsemidi");
-    if (p) return `${p.title} — ${p.description} Stack: ${p.stack.join(", ")}.`;
-  }
-
-  if (
-    m(q, [
-      "pulsecontrol",
-      "pulse control",
-      "control bridge",
-      "control mobile",
-      "wireless midi",
-    ])
-  ) {
-    const bridge = projects.find((p) => p.id === "pulsecontrol-bridge");
-    const mobile = projects.find((p) => p.id === "pulsecontrol-mobile");
-    return `PulseControl is a two-part system by StudioCTRL. ${bridge ? `PulseControl Bridge: ${bridge.description}` : ""} ${mobile ? `PulseControl Mobile: ${mobile.description}` : ""}`;
-  }
-
-  if (
-    m(q, [
       "project",
       "built",
       "build",
@@ -276,7 +247,7 @@ export function getResponse(input: string): string {
   }
 
   if (m(q, ["rust"])) {
-    return `Ernest has used Rust in past experiments but his current music technology projects (PulseMIDI, PulseControl Bridge) are built in Tauri & Rust with CoreMIDI.`;
+    return `Ernest has experimented with Rust and Tauri for native desktop application development alongside his main stack of TypeScript, Golang, and React.`;
   }
 
   if (m(q, ["frontend", "react", "next.js", "nextjs", "tailwind"])) {
@@ -331,20 +302,6 @@ export function getResponse(input: string): string {
     m(q, ["payment", "fintech", "security", "compliance", "owasp", "fraud"])
   ) {
     return `Ernest specialises in frontend payment integration — Mobile Money, PCI DSS-compliant Mastercard checkout, and airtime flows. He enforces OWASP-aligned security practices and has implemented SIM swap validation and Ghana Card (NIA) integration for high-risk operations.`;
-  }
-
-  if (
-    m(q, [
-      "music",
-      "piano",
-      "keyboard",
-      "ableton",
-      "mainstage",
-      "musician",
-      "producer",
-    ])
-  ) {
-    return `Ernest is also a musician and keyboardist. He builds native music tools under StudioCTRL — PulseMIDI (Tauri & Rust + CoreMIDI, AudioUnit v3, CLAP), PulseControl Bridge (macOS desktop MIDI bridge, Network.framework, Bonjour/mDNS), and PulseControl Mobile (Android available now, iOS coming soon). His setup includes Ableton Live, MainStage, Studio One, Omnisphere, Kontakt, and a Korg Triton.`;
   }
 
   if (

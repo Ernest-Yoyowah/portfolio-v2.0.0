@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Projects", href: "/projects" },
-  { label: "Music", href: "/music" },
   { label: "Writing", href: "/writing" },
   { label: "Uses", href: "/uses" },
 ];
@@ -32,6 +31,17 @@ export function Navbar() {
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
@@ -95,8 +105,8 @@ export function Navbar() {
               Get in touch
             </a>
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              onClick={() => setMenuOpen((o) => !o)}
+              className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ml-1"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
             >
@@ -106,12 +116,29 @@ export function Navbar() {
         </div>
       </header>
 
-      {menuOpen && (
-        <div className="fixed inset-x-0 top-14 z-40 bg-background border-b border-border md:hidden">
-          <nav
-            className="section-padding py-4 flex flex-col gap-0.5"
-            aria-label="Mobile navigation"
-          >
+      <div
+        className={cn(
+          "fixed inset-x-0 bottom-0 z-40 md:hidden transition-opacity duration-200",
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
+        )}
+        style={{ top: "3.5rem", background: "rgba(0,0,0,0.35)" }}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      <div
+        className={cn(
+          "fixed inset-x-0 top-14 z-40 md:hidden bg-background border-b border-border shadow-xl transition-all duration-200 origin-top",
+          menuOpen
+            ? "opacity-100 scale-y-100 pointer-events-auto"
+            : "opacity-0 scale-y-95 pointer-events-none",
+        )}
+      >
+        <nav
+          className="section-padding pt-2 pb-5 flex flex-col"
+          aria-label="Mobile navigation"
+        >
+          <div className="space-y-0.5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -120,27 +147,32 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={cn(
-                    "px-3 py-2.5 text-sm rounded-md transition-colors",
+                    "flex items-center justify-between w-full px-3 py-3.5 rounded-lg text-sm transition-colors",
                     isActive
                       ? "text-foreground font-medium bg-muted"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground flex-shrink-0" />
+                  )}
                 </Link>
               );
             })}
+          </div>
+          <div className="mt-3 pt-3 border-t border-border">
             <a
               href="mailto:ernestniiyoyowah@gmail.com"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 px-3 py-2.5 rounded-md text-sm font-medium bg-foreground text-background text-center"
+              className="flex items-center justify-center w-full py-3 rounded-lg text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
             >
               Get in touch
             </a>
-          </nav>
-        </div>
-      )}
+          </div>
+        </nav>
+      </div>
     </>
   );
 }

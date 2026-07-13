@@ -29,7 +29,7 @@ const useCategories: UseCategory[] = [
       },
       {
         name: "Rust",
-        description: "Native macOS music tools — CoreMIDI, AudioUnit v3.",
+        description: "Native desktop application development.",
       },
     ],
   },
@@ -88,20 +88,6 @@ const useCategories: UseCategory[] = [
       },
     ],
   },
-  {
-    label: "Music Production",
-    items: [
-      {
-        name: "Ableton Live",
-        description: "Production, arrangement, and live performance.",
-      },
-      { name: "MainStage", description: "Live keyboard rigs. Zero-latency." },
-      { name: "Studio One", description: "Mixing and mastering sessions." },
-      { name: "Omnisphere", description: "Synthesis and sound design." },
-      { name: "Kontakt", description: "Sample-based instruments." },
-      { name: "Korg Triton", description: "Hardware synth. Iconic sounds." },
-    ],
-  },
 ];
 
 export function UsesPage() {
@@ -111,7 +97,7 @@ export function UsesPage() {
         <SectionHeader
           eyebrow="Uses"
           title="My Setup & Stack"
-          description="The tools, software, and hardware I use day-to-day for payment systems engineering, building music technology, and everything in between."
+          description="The tools, software, and languages I use day-to-day for payment systems engineering and software development."
         />
 
         <div className="space-y-10">

@@ -25,7 +25,7 @@ export function Projects() {
         <SectionHeader
           eyebrow="Featured Projects"
           title="Systems I've Engineered"
-          description="Production systems and active tools — across fintech infrastructure and music technology."
+          description="Production systems and active tools — payment infrastructure, telecom platforms, and fleet intelligence."
         />
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -80,7 +80,6 @@ export function Projects() {
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

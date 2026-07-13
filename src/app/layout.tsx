@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+      "Ernest Yoyowah — Software Engineer · Payments & Systems",
     template: "%s · Ernest Yoyowah",
   },
   description:
-    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Also building native macOS and cross-platform mobile music tools under StudioCTRL Technologies (React Native, Tauri & Rust, CoreMIDI, AudioUnit v3).",
+    "Software Engineer at MTN Ghana building payment systems, mobile platforms, and backend infrastructure. Mobile Money, PCI DSS-compliant card flows, and backend services at scale.",
   keywords: [
     "Software Engineer Ghana",
     "Payment Systems Engineer",
@@ -37,9 +37,7 @@ export const metadata: Metadata = {
     "fintech Ghana",
     "PCI DSS engineer",
     "Mastercard checkout integration",
-    "React TypeScript Node.js",
-    "MIDI engineering",
-    "CoreMIDI developer",
+    "React TypeScript Node.js Golang",
     "Ernest Yoyowah",
     "Accra software engineer",
     "West Africa fintech",
@@ -51,9 +49,9 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Ernest Yoyowah",
     title:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+      "Ernest Yoyowah — Software Engineer · Payments & Systems",
     description:
-      "Software Engineer at MTN Ghana building secure payment systems and creative technology tools. Mobile Money, PCI DSS, Mastercard, MIDI engineering.",
+      "Software Engineer at MTN Ghana building secure payment systems and backend infrastructure. Mobile Money, PCI DSS, Mastercard.",
     images: [
       {
         url: "/og-image.png",
@@ -66,9 +64,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Ernest Yoyowah — Software Engineer · Payments & Creative Technology",
+      "Ernest Yoyowah — Software Engineer · Payments & Systems",
     description:
-      "Software Engineer at MTN Ghana building secure payment systems and creative technology tools.",
+      "Software Engineer at MTN Ghana building secure payment systems and backend infrastructure.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -111,9 +109,8 @@ const jsonLd = {
     "Node.js",
     "Golang",
     "React Native",
-    "Tauri",
-    "MIDI Engineering",
-    "Music Technology",
+    "Next.js",
+    "Fintech",
   ],
   sameAs: [
     "https://github.com/Ernest-Yoyowah",

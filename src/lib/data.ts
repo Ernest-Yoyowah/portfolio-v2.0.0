@@ -220,7 +220,22 @@ export const certifications = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  longDescription: string;
+  stack: string[];
+  category: string;
+  status: string;
+  highlights: string[];
+  gradient: string;
+  accentColor: string;
+  link?: string;
+};
+
+export const projects: Project[] = [
   {
     id: "mtn-pay",
     title: "MTN Pay",
@@ -321,71 +336,6 @@ export const projects = [
     gradient: "from-emerald-500/10 to-teal-600/10",
     accentColor: "#10b981",
   },
-  {
-    id: "pulsemidi",
-    title: "PulseMIDI",
-    subtitle: "MIDI Diagnostics & Monitoring",
-    description:
-      "Native macOS MIDI diagnostic tool — realtime signal inspection, device enumeration, and virtual port routing. Built with Tauri & Rust and CoreMIDI. Distributed as standalone, AudioUnit v3, and CLAP.",
-    longDescription:
-      "PulseMIDI is a native macOS application for MIDI signal monitoring, device management, and port routing. Built with Tauri & Rust, using CoreMIDI for system-level MIDI access and the CLAP SDK for plugin distribution. Ships as a universal binary targeting Apple Silicon and Intel Macs on macOS 12+.",
-    stack: ["Tauri & Rust", "CoreMIDI", "AudioUnit v3", "CLAP SDK"],
-    category: "Music Technology",
-    status: "Available",
-    highlights: [
-      "Tauri & Rust with direct CoreMIDI framework access",
-      "Realtime MIDI signal visualisation and device enumeration",
-      "Virtual MIDI port creation and routing",
-      "Universal binary — Apple Silicon + Intel, macOS 12+",
-      "Standalone, AudioUnit v3, and CLAP plugin distributions",
-    ],
-    gradient: "from-purple-500/10 to-violet-600/10",
-    accentColor: "#a855f7",
-    link: "https://ernest-keyz-studios.vercel.app/products/pulsemidi",
-  },
-  {
-    id: "pulsecontrol-bridge",
-    title: "PulseControl Bridge",
-    subtitle: "Native macOS DAW Bridge",
-    description:
-      "Native macOS desktop bridge connecting mobile controllers to DAWs via CoreMIDI and WebSocket. Advertises itself on the local network via Bonjour/mDNS for zero-config pairing. macOS 11+, universal binary.",
-    longDescription:
-      "PulseControl Bridge is a native macOS application that bridges the PulseControl Mobile app to your DAW over a local WebSocket connection. Devices discover each other via Bonjour/mDNS — no configuration required. Creates virtual MIDI output ports via CoreMIDI for seamless DAW integration.",
-    stack: ["Tauri & Rust", "Network.framework", "Bonjour/mDNS", "CoreMIDI"],
-    category: "Music Technology",
-    status: "Available",
-    highlights: [
-      "Creates virtual MIDI output ports via CoreMIDI — appears as a real MIDI device in any DAW",
-      "WebSocket server receiving MIDI control data from mobile",
-      "Bonjour/mDNS network advertisement for zero-config device discovery",
-      "Universal binary — Apple Silicon + Intel native",
-      "macOS 11+ standalone application",
-    ],
-    gradient: "from-cyan-500/10 to-blue-600/10",
-    accentColor: "#22d3ee",
-    link: "https://ernest-keyz-studios.vercel.app/products/pulsecontrol-bridge",
-  },
-  {
-    id: "pulsecontrol-mobile",
-    title: "PulseControl Mobile",
-    subtitle: "Wireless MIDI Control Surface",
-    description:
-      "Wireless MIDI control surface for Android (available) and iOS (coming soon) — touch faders and rotary knobs over WebSocket, pairing with PulseControl Bridge via QR code scan.",
-    longDescription:
-      "PulseControl Mobile turns your phone into a wireless MIDI controller. Android is available now, with iOS coming soon. Touch faders and rotary knobs send MIDI CC data to PulseControl Bridge over a WebSocket connection. Pairing is handled via QR code — no manual network configuration.",
-    stack: ["React Native", "WebSocket", "iOS", "Android"],
-    category: "Music Technology",
-    status: "Android Available",
-    highlights: [
-      "Touch faders and rotary knobs transmitting MIDI CC data",
-      "WebSocket transport pairing with PulseControl Bridge",
-      "QR code pairing — zero manual network configuration",
-      "Android available now; iOS release in progress",
-    ],
-    gradient: "from-violet-500/10 to-purple-600/10",
-    accentColor: "#a855f7",
-    link: "https://ernest-keyz-studios.vercel.app/products/pulsecontrol-mobile",
-  },
 ];
 
 export const fintechCapabilities = [
@@ -433,67 +383,6 @@ export const fintechCapabilities = [
   },
 ];
 
-export const musicTechCapabilities = [
-  {
-    title: "Realtime MIDI Processing & Port Routing",
-    description:
-      "CoreMIDI-based event capture, virtual port creation, MIDI device enumeration, and low-latency message routing. PulseMIDI implements this layer in Tauri & Rust with direct CoreMIDI framework access.",
-    tags: ["CoreMIDI", "Tauri & Rust", "Virtual Ports", "Device Enumeration"],
-  },
-  {
-    title: "Native Desktop Music Software",
-    description:
-      "macOS native application development in Tauri & Rust targeting Apple Silicon and Intel. Standalone and plugin distribution — AudioUnit v3 and CLAP — with universal binary packaging.",
-    tags: ["Tauri & Rust", "AudioUnit v3", "CLAP", "Apple Silicon", "Intel"],
-  },
-  {
-    title: "DAW Ecosystems & Plugin Integration",
-    description:
-      "Deep production experience across Ableton Live, MainStage, and Studio One — routing chains, automation, plugin parameter mapping, and the operational differences between live and studio session contexts.",
-    tags: ["Ableton Live", "MainStage", "Studio One", "VST3"],
-  },
-  {
-    title: "Live Performance System Architecture",
-    description:
-      "Built and operated keyboard rigs for church and live performance teams — patch switching, setlist management, multi-channel MIDI routing, and zero-downtime operation under live stage conditions.",
-    tags: ["MainStage", "Patch Switching", "MIDI Routing", "Live Rigs"],
-  },
-  {
-    title: "Virtual Instruments & Sound Design",
-    description:
-      "Extensive hands-on experience with Omnisphere synthesis, Kontakt sample instrument libraries, and Arturia instrument platforms — applied across worship, live performance, and studio production.",
-    tags: ["Omnisphere", "Kontakt", "Arturia", "Korg Triton"],
-  },
-  {
-    title: "Musician Tooling & Workflow Engineering",
-    description:
-      "Building tools targeting real musician workflows — MIDI controller mapping, signal inspection, device routing, and performance-critical reliability. Grounded in supporting professional musicians and live performance teams.",
-    tags: [
-      "MIDI Controllers",
-      "Signal Inspection",
-      "Workflow Tooling",
-      "macOS",
-    ],
-  },
-];
-
-export const musicStack = [
-  { name: "Ableton Live", category: "DAW" },
-  { name: "MainStage", category: "DAW" },
-  { name: "Studio One", category: "DAW" },
-  { name: "Omnisphere", category: "Synthesis" },
-  { name: "Arturia", category: "Synthesis" },
-  { name: "Kontakt", category: "Sampling" },
-  { name: "Korg Triton", category: "Hardware" },
-  { name: "CoreMIDI", category: "System" },
-  { name: "CoreAudio", category: "System" },
-  { name: "Rust", category: "Language" },
-  { name: "TypeScript", category: "Language" },
-  { name: "Tauri", category: "Framework" },
-  { name: "VST3", category: "Standard" },
-  { name: "CLAP", category: "Standard" },
-];
-
 export const articles = [
   {
     id: "transaction-orchestration",
@@ -514,16 +403,6 @@ export const articles = [
     readTime: "6 min read",
     date: "Coming Soon",
     tags: ["PCI DSS", "Security", "React"],
-  },
-  {
-    id: "tauri-coremidi",
-    title: "Building Native macOS MIDI Tools with Tauri & Rust and CoreMIDI",
-    excerpt:
-      "A practical guide to accessing macOS CoreMIDI from Tauri & Rust — device enumeration, virtual port creation, and real-time message handling.",
-    category: "Music Technology",
-    readTime: "10 min read",
-    date: "Coming Soon",
-    tags: ["Tauri & Rust", "MIDI", "macOS"],
   },
   {
     id: "observability-payments",

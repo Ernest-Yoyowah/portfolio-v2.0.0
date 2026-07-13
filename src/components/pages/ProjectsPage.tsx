@@ -29,7 +29,7 @@ export function ProjectsPage() {
         <SectionHeader
           eyebrow="Projects & Systems"
           title="What I've Built"
-          description="Production systems, active development, and next-generation tools — across fintech infrastructure and music technology."
+          description="Production systems and active development — payment infrastructure, telecom platforms, and fleet intelligence."
         />
 
         <div className="grid lg:grid-cols-2 gap-4">
