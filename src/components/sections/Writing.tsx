@@ -3,6 +3,25 @@ import { articles } from "@/lib/data";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+function MediumLink() {
+  return (
+    <a
+      href="https://ernestyoyowah.medium.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 border border-border rounded-lg px-4 py-3 mb-4 hover:border-foreground/20 hover:bg-muted/30 transition-all duration-200"
+    >
+      <div className="w-6 h-6 rounded-full bg-foreground flex items-center justify-center flex-shrink-0">
+        <span className="text-background text-xs font-bold leading-none">M</span>
+      </div>
+      <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors flex-1">
+        Also writing on Medium — payment systems & fintech engineering
+      </span>
+      <ArrowUpRight size={13} className="text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
+    </a>
+  );
+}
+
 export function Writing() {
   return (
     <section id="writing" className="py-24 border-t border-border">
@@ -13,8 +32,10 @@ export function Writing() {
           description="Thinking in public about payment systems, reliability engineering, and the craft of building software."
         />
 
+        <MediumLink />
+
         <div className="divide-y divide-border border border-border rounded-lg overflow-hidden">
-          {articles.map((article) => (
+          {articles.slice(0, 3).map((article) => (
             <article
               key={article.id}
               className="p-5 hover:bg-muted/40 transition-colors"

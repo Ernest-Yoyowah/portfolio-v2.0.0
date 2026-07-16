@@ -1,12 +1,21 @@
 "use client";
 
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, Clock, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { articles } from "@/lib/data";
+import { HowMoneyMoves } from "@/components/articles/HowMoneyMoves";
+import { PciDssFrontend } from "@/components/articles/PciDssFrontend";
+import type { ComponentType } from "react";
 
 type Article = (typeof articles)[0];
 
+const CONTENT_MAP: Record<string, ComponentType> = {
+  "how-money-moves": HowMoneyMoves,
+  "pci-dss-frontend": PciDssFrontend,
+};
+
 export function ArticlePage({ article }: { article: Article }) {
+  const Content = CONTENT_MAP[article.id] ?? null;
   const otherArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
 
   return (
@@ -35,6 +44,12 @@ export function ArticlePage({ article }: { article: Article }) {
               <Clock size={10} />
               {article.readTime}
             </span>
+            {article.date !== "Coming Soon" && (
+              <>
+                <span className="w-px h-3 bg-border" />
+                <span className="text-xs font-mono text-muted-foreground">{article.date}</span>
+              </>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight leading-tight mb-4">
@@ -45,24 +60,37 @@ export function ArticlePage({ article }: { article: Article }) {
             {article.excerpt}
           </p>
 
-          <div className="border border-border rounded-lg p-7 text-center">
-            <p className="text-sm font-semibold text-foreground mb-1.5">
-              Article coming soon
-            </p>
-            <p className="text-sm text-muted-foreground mb-5">
-              This article is being written. Subscribe to get notified when it publishes.
-            </p>
-            <div className="flex flex-wrap gap-1.5 justify-center">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-0.5 rounded text-xs font-mono border border-border text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
+          {Content ? (
+            <Content />
+          ) : (
+            <div className="border border-border rounded-lg p-7 text-center">
+              <p className="text-sm font-semibold text-foreground mb-1.5">
+                Article coming soon
+              </p>
+              <p className="text-sm text-muted-foreground mb-5">
+                This article is being written. Follow on Medium for updates when it publishes.
+              </p>
+              <a
+                href="https://ernestyoyowah.medium.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-foreground font-medium hover:underline"
+              >
+                ernestyoyowah.medium.com
+                <ArrowUpRight size={13} />
+              </a>
+              <div className="flex flex-wrap gap-1.5 justify-center mt-5">
+                {article.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-0.5 rounded text-xs font-mono border border-border text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {otherArticles.length > 0 && (

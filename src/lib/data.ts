@@ -385,6 +385,26 @@ export const fintechCapabilities = [
 
 export const articles = [
   {
+    id: "how-money-moves",
+    title: "How Money Actually Moves: Why Every Software Engineer Should Understand This",
+    excerpt:
+      "A successful API response doesn't mean money has moved. Behind every payment tap lies authentication, authorization, ledger commits, settlement, and reconciliation — a distributed system where every step must be correct and recoverable.",
+    category: "Fintech Engineering",
+    readTime: "12 min read",
+    date: "Jul 2026",
+    tags: ["Payments", "Architecture", "Fintech"],
+  },
+  {
+    id: "pci-dss-frontend",
+    title: "PCI DSS Compliance for Frontend Engineers",
+    excerpt:
+      "What frontend engineers building card payment flows actually need to know about PCI DSS, tokenization, and hosted checkout.",
+    category: "Security",
+    readTime: "10 min read",
+    date: "Jul 2026",
+    tags: ["PCI DSS", "Security", "React"],
+  },
+  {
     id: "transaction-orchestration",
     title: "Transaction Orchestration in High-Volume Payment Systems",
     excerpt:
@@ -393,16 +413,6 @@ export const articles = [
     readTime: "8 min read",
     date: "Coming Soon",
     tags: ["Payments", "Architecture", "Reliability"],
-  },
-  {
-    id: "pci-dss-frontend",
-    title: "PCI DSS Compliance for Frontend Engineers",
-    excerpt:
-      "What frontend engineers building card payment flows actually need to know about PCI DSS, tokenization, and hosted checkout.",
-    category: "Security",
-    readTime: "6 min read",
-    date: "Coming Soon",
-    tags: ["PCI DSS", "Security", "React"],
   },
   {
     id: "observability-payments",
