@@ -1,77 +1,40 @@
-# Ernest Yoyowah — Portfolio v2
+# ernestyoyowah.vercel.app
 
-Personal portfolio site for Ernest Yoyowah, Software Engineer at MTN Ghana.
+Personal site of Ernest Yoyowah, software engineer at MTN Ghana.
 
-Built with **Next.js 16**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
-
-## Routes
-
-| Route | Description |
-|---|---|
-| `/` | Landing page with all sections |
-| `/work` | Full engineering experience & tech stack |
-| `/projects` | All projects listing |
-| `/projects/[slug]` | Individual project case studies |
-| `/music` | Music technology & creative engineering |
-| `/writing` | Engineering articles |
-| `/writing/[slug]` | Individual article pages |
-| `/uses` | Tools, hardware, and software setup |
-| `/sitemap.xml` | Auto-generated sitemap |
-| `/robots.txt` | SEO robots config |
-
-## Tech Stack
-
-- **Framework**: Next.js 16.2.6 — App Router, static export, Turbopack
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 — `@theme inline`, oklch color space
-- **Animation**: Framer Motion 12
-- **UI**: shadcn/ui + Radix UI primitives
-- **Fonts**: Geist Sans + Geist Mono (next/font/google)
+Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4. Every page is statically generated.
 
 ## Development
 
 ```bash
 npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Build
-
-```bash
+npm run dev     # http://localhost:3000
 npm run build
-npm run start
-```
-
-## Deploy
-
-Optimized for [Vercel](https://vercel.com). Push to `main` to deploy.
-
-```bash
-vercel --prod
+npm run lint
 ```
 
 ## Structure
 
 ```
 src/
-  app/
-    layout.tsx         # Root layout, SEO metadata, JSON-LD
-    page.tsx           # Home page
-    work/              # Work & experience page
-    projects/          # Projects listing + [slug] case studies
-    music/             # Music technology page
-    writing/           # Articles + [slug] article pages
-    uses/              # Tools & setup page
-    robots.ts          # SEO robots
-    sitemap.ts         # Auto-generated sitemap
-  components/
-    layout/            # Navbar, Footer, PageShell
-    sections/          # Home page sections (Hero, Experience, etc.)
-    pages/             # Full page components (WorkPage, ProjectsPage, etc.)
-    ui/                # Reusable UI components
-  lib/
-    data.ts            # All portfolio content (single source of truth)
-    utils.ts           # Utility functions
+  app/                 Routes, metadata, sitemap, robots, OG image
+  components/          Layout and presentational components
+    article/           Components used inside long-form articles
+  content/             All site content as typed modules
+    projects/          Project index and case study bodies
+    writing/           Article index and article bodies
+  lib/                 Site config, date formatting, class helpers
 ```
+
+Content lives in `src/content` and is kept separate from presentation. To add or change something:
+
+- **Experience, skills, certifications:** edit `content/experience.ts`. Dates are `YYYY-MM` strings.
+- **Projects:** add an entry to `content/projects/index.ts`. It gets a page at `/projects/[slug]` automatically. For a longer case study, write the body as a component in `content/projects/` and register it in `app/projects/[slug]/page.tsx`.
+- **Articles:** add an entry to `content/writing/index.ts`, write the body as a component in `content/writing/`, and register it in `app/writing/[slug]/page.tsx`. Entries without a `published` date are listed as drafts and don't get a page.
+
+## Notes
+
+- Only the navigation, theme toggle and article checklist are client components. Everything else renders on the server.
+- Theming uses `next-themes` with a class on `<html>`. Colour tokens are defined once in `app/globals.css`.
+- Long-form article styling is the `.prose` layer in `globals.css`, not a plugin.
+- Deployed on Vercel from `main`.

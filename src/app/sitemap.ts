@@ -1,76 +1,21 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/content/projects";
+import { getPublishedArticles } from "@/content/writing";
+import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://ernestyoyowah.vercel.app";
-  const now = new Date();
+  const pages = ["", "/about", "/work", "/projects", "/writing", "/uses"].map((path) => ({
+    url: `${site.url}${path}`,
+  }));
 
-  return [
-    { url: base, lastModified: now, changeFrequency: "monthly", priority: 1 },
-    {
-      url: `${base}/work`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/projects`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/projects/mtn-pay`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/projects/mtn-ssp`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/projects/mtn-pulse`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/projects/mtn-auth`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/projects/autosurveil`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/writing`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/writing/how-money-moves`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/writing/pci-dss-frontend`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/uses`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-  ];
+  const projectPages = projects.map((project) => ({
+    url: `${site.url}/projects/${project.slug}`,
+  }));
+
+  const articlePages = getPublishedArticles().map((article) => ({
+    url: `${site.url}/writing/${article.slug}`,
+    lastModified: `${article.published}-01`,
+  }));
+
+  return [...pages, ...projectPages, ...articlePages];
 }
