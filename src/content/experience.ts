@@ -27,7 +27,7 @@ export const experience: Experience[] = [
         team: "SSP Platform & MTN Pay",
         start: "2025-03",
         summary:
-          "I lead frontend architecture for the SSP platform, which brings MTN Ghana’s self-service products together as independently deployed micro-frontends, and for MTN Pay, the payment gateway used across MTN services.",
+          "I lead frontend engineering for the SSP platform, which brings MTN Ghana’s self-service products together as independently deployed micro-frontends, and for MTN Pay, the payment gateway used across MTN services.",
         highlights: [
           "Lead the initiative to replace separate service portals with one platform: the Shell, SSP Portal, eCommerce, SIM Swap, Business Hub and other React applications, composed with Webpack Module Federation.",
           "Designed and introduced the company’s central design system, covering tokens, theming, components, hooks, a typed icon library and global styles, published as a versioned package on GitHub Packages.",
@@ -81,7 +81,14 @@ export const experience: Experience[] = [
         ],
       },
     ],
-    stack: ["React", "TypeScript", "Material UI", "Tailwind CSS", "Node.js", "MongoDB"],
+    stack: [
+      "React",
+      "TypeScript",
+      "Material UI",
+      "Tailwind CSS",
+      "Node.js",
+      "MongoDB",
+    ],
   },
   {
     company: "Xcelsz",
@@ -91,7 +98,8 @@ export const experience: Experience[] = [
         title: "Agile Developer",
         start: "2023-06",
         end: "2023-08",
-        summary: "A short contract improving mobile responsiveness across Xcelsz’s web products.",
+        summary:
+          "A short contract improving mobile responsiveness across Xcelsz’s web products.",
         highlights: [
           "Audited the home page on mobile and documented the problem areas.",
           "Rebuilt the navigation, header, hero and content layout to adapt across screen sizes.",
@@ -109,7 +117,8 @@ export const experience: Experience[] = [
         title: "Software Developer",
         start: "2020-09",
         end: "2021-11",
-        summary: "Led the design and development of the institute’s first official website.",
+        summary:
+          "Led the design and development of the institute’s first official website.",
         highlights: [
           "Built a responsive site with React, HTML and CSS.",
           "Improved search visibility through SEO work, Open Graph metadata and social integrations.",
@@ -123,12 +132,23 @@ export const experience: Experience[] = [
 
 export const skills: { label: string; items: string[] }[] = [
   { label: "Languages", items: ["TypeScript", "JavaScript", "Go", "Rust"] },
-  { label: "Frontend", items: ["React", "React Native", "Next.js", "Tailwind CSS"] },
+  {
+    label: "Frontend",
+    items: ["React", "React Native", "Next.js", "Tailwind CSS"],
+  },
   {
     label: "Architecture",
-    items: ["Micro-frontends", "Webpack Module Federation", "Design systems", "Design tokens"],
+    items: [
+      "Micro-frontends",
+      "Webpack Module Federation",
+      "Design systems",
+      "Design tokens",
+    ],
   },
-  { label: "Tooling", items: ["GitHub Actions", "Changesets", "Vitest", "tsup"] },
+  {
+    label: "Tooling",
+    items: ["GitHub Actions", "Changesets", "Vitest", "tsup"],
+  },
   { label: "Backend", items: ["Node.js", "Express", "MongoDB", "MySQL"] },
   { label: "State", items: ["Redux", "Zustand"] },
   { label: "Security", items: ["Auth0", "PCI DSS", "OWASP"] },
@@ -143,12 +163,28 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
-  { title: "Mobile Development and JavaScript", issuer: "Meta", date: "2023-11" },
-  { title: "Introduction to Mobile Development", issuer: "Meta", date: "2023-12" },
-  { title: "Meta Front-End Developer Specialization", issuer: "Meta", date: "2023-09" },
+  {
+    title: "Mobile Development and JavaScript",
+    issuer: "Meta",
+    date: "2023-11",
+  },
+  {
+    title: "Introduction to Mobile Development",
+    issuer: "Meta",
+    date: "2023-12",
+  },
+  {
+    title: "Meta Front-End Developer Specialization",
+    issuer: "Meta",
+    date: "2023-09",
+  },
   { title: "Front-End Developer Capstone", issuer: "Meta", date: "2023-08" },
   { title: "Principles of UX/UI Design", issuer: "Meta", date: "2023-08" },
-  { title: "Back-End Web Development", issuer: "Microsoft Imagine Cup", date: "2023-06" },
+  {
+    title: "Back-End Web Development",
+    issuer: "Microsoft Imagine Cup",
+    date: "2023-06",
+  },
   { title: "Advanced React", issuer: "Coursera", date: "2023-04" },
   { title: "React Basics", issuer: "Meta", date: "2023-03" },
   { title: "Programming with JavaScript", issuer: "Meta", date: "2022-11" },
@@ -158,6 +194,10 @@ export const certifications: Certification[] = [
     issuer: "University of Michigan",
     date: "2022-11",
   },
-  { title: "Cloud Computing Basics (Cloud 101)", issuer: "Coursera", date: "2022-10" },
+  {
+    title: "Cloud Computing Basics (Cloud 101)",
+    issuer: "Coursera",
+    date: "2022-10",
+  },
   { title: "Coding Interview Preparation", issuer: "Meta", date: "2022-09" },
 ].sort((a, b) => b.date.localeCompare(a.date));

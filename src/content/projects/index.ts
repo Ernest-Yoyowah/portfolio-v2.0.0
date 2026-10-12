@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "One platform for MTN Ghana’s self-service products, built from independently deployed micro-frontends.",
     description: [
       "MTN Ghana’s digital services grew up as separate portals. Managing an account, buying a device, swapping a SIM and running a business account each lived on a different site, with its own codebase, its own interface and its own way of doing things.",
-      "In an architecture review the question was put plainly: why do customers need a different portal for every service? The answer we settled on was a single platform, composed of independently deployed micro-frontends, with a shared design system underneath. I lead that initiative and own its frontend architecture.",
+      "In an architecture review the question was put plainly: why do customers need a different portal for every service? The answer we settled on was a single platform, composed of independently deployed micro-frontends, with a shared design system underneath. I lead the frontend engineering for the platform, and designed and introduced the design system that every application on it uses.",
     ],
     highlights: [
       "Replaced a portal-per-service model with one platform for MTN’s self-service products",
